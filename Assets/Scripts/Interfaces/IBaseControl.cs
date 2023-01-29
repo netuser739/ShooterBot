@@ -10,6 +10,5 @@ namespace ShooterBot
 
         void Rotate(Vector3 direction);
 
-        void Shoot();
     }
 }

@@ -4,16 +4,20 @@ namespace ShooterBot
 {
     public class InputController : IExecute
     {
-        private readonly Unit _player;
+        private readonly Player _player;
         private readonly CameraController _cameraController;
 
         private float forwardDir;
         private float sidesDir;
 
-        public InputController(Unit player, CameraController cameraController)
+        private float timeToRealse;
+
+        public InputController(Player player, CameraController cameraController)
         {
             _player = player;
             _cameraController = cameraController;
+
+            timeToRealse = 0f;
 
         }
 
@@ -30,7 +34,34 @@ namespace ShooterBot
             _player.Move(move);
             _player.Rotate(move);
             _player.Animation(_player.Animator, move.magnitude);
-        }
 
+            if (Input.GetKeyDown(KeyCode.E) && _player.WeaponGrab)
+            {
+                _player.WeaponTake(_player.WeaponCollider.gameObject);
+                timeToRealse = 0f;
+
+            }
+
+            if (Input.GetKey(KeyCode.E))
+            {
+                timeToRealse += Time.deltaTime;
+            }
+            if(timeToRealse > 1f && _player.WithWeapon) 
+            {
+                _player.WeaponRelease(_player.WeaponCollider.gameObject);
+                timeToRealse = 0f;
+            }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                _player.Aming = true;
+            }
+            if(Input.GetMouseButtonUp(1)) 
+            {
+                _player.Aming = false;
+            }
+           
+        }
+        
     }
 }
