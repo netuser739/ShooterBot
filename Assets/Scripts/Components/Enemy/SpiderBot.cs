@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EnemyAI.SpiderBot;
 
 namespace ShooterBot
 {
@@ -12,6 +13,8 @@ namespace ShooterBot
         public override void Awake()
         {
             base.Awake();
+            //SpiderBotControl spider = new SpiderBotControl(this);
+            //spider.Attack();
         }
 
         public override void Move(Vector3 dir)

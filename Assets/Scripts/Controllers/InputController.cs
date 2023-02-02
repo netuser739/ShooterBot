@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace ShooterBot
 {
@@ -6,7 +7,7 @@ namespace ShooterBot
     {
         private readonly Player _player;
         private readonly CameraController _cameraController;
-
+        
         private float forwardDir;
         private float sidesDir;
 
@@ -52,7 +53,7 @@ namespace ShooterBot
                 timeToRealse = 0f;
             }
 
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(1) && _player.WithWeapon)
             {
                 _player.Aming = true;
             }

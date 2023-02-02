@@ -7,6 +7,7 @@ TagManager:
   - WeaponPoint
   - Weapon
   - Enemy
+  - Crosshair
   layers:
   - Default
   - TransparentFX

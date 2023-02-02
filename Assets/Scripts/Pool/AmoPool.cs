@@ -2,18 +2,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 using UnityEngine;
+using ServiceLocator;
 using Object = UnityEngine.Object;
 
 namespace ShooterBot
 {
-
-    internal sealed class AmoPool
+    internal sealed class AmoPool : ServiceBase
     {
         private readonly Dictionary<string, HashSet<Bullet>> _amoPool;
         private readonly int _capacityPool;
         private Transform _rootPool;
 
-        public AmoPool(int capacityPool)
+        public AmoPool(int capacityPool, int version) : base(version)
         {
             _amoPool = new Dictionary<string, HashSet<Bullet>>();
             _capacityPool = capacityPool;

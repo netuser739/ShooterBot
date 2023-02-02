@@ -2,20 +2,32 @@ using ShooterBot;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Prototype;    //не забыть убрать
 
-public class EnemyFactory : IEnemyFactory
+namespace ShooterBot
 {
-    public Enemy Create(EnemyType type)
+    public class EnemyFactory : IEnemyFactory
     {
-        Enemy enemy;
-
-        switch(type)
+        public Enemy Create(EnemyType type)
         {
-            case EnemyType.SpiderBot:
-                enemy = Object.Instantiate(Resources.Load<Enemy>("SpiderBot"));
-                return enemy;
+            Enemy enemy;
+
+            switch (type)
+            {
+                case EnemyType.SpiderBot:
+                    enemy = Object.Instantiate(Resources.Load<Enemy>("SpiderBot"));
+                    return enemy;
+            }
+
+            return null;
         }
 
-        return null;
+        //все убрать
+        public EnemyData Copy(Enemy enemy)
+        {
+            EnemyData data = new EnemyData(enemy);
+            EnemyData newEnemyData = data.DeepCopy();
+            return newEnemyData;
+        }
     }
 }

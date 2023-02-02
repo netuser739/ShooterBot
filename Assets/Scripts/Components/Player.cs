@@ -11,6 +11,7 @@ namespace ShooterBot
     public class Player : Unit, IWeaponInteraction
     {
         [SerializeField] private GameObject _weaponPoint;
+        private GameObject crossHair;
         private CharacterController characterController;
 
         private GameObject[] _weapons;
@@ -25,7 +26,15 @@ namespace ShooterBot
 
         public bool WithWeapon => _withWeapon;
 
-        public bool Aming { get => _aming; set => _aming = value; }
+        public bool Aming
+        {
+            get => _aming;
+            set
+            {
+                _aming = value;
+                crossHair.SetActive(value);
+            }
+        }
 
         public override void Awake()
         {
@@ -34,9 +43,11 @@ namespace ShooterBot
             characterController = GetComponent<CharacterController>();
             _weapons = new GameObject[] {null, null};
 
+            crossHair = GameObject.FindGameObjectWithTag("Crosshair");
+            
             _weaponGrab = false;
             _withWeapon = false;
-            _aming = false;
+            Aming = false;
         }
 
         public override void Animation(Animator animator, float speed)
