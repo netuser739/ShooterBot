@@ -24,7 +24,8 @@ namespace ShooterBot
 
         public override void Rotate(Vector3 dir)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(Vector3.Cross(dir, Vector3.down)), 2f * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(Vector3.Cross(dir, Vector3.down)), 
+                2f * Time.deltaTime);
         }
 
         public override void Animation(Animator animator, float speed)

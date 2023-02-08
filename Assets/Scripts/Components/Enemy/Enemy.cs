@@ -6,7 +6,7 @@ namespace ShooterBot
 {
     public abstract class Enemy : MonoBehaviour, IEnemyBase, IWork
     {
-        [SerializeField] public EnemyCharacteristics characteristics;       //не забыть поменять на private
+        [SerializeField] private EnemyCharacteristics characteristics;
 
         private EnemyType _type;
         private RuntimeAnimatorController _animator;

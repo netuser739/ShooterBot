@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb4ee8ece9d87be43ba23fb0e45189c6, type: 3}
   m_Name: Gun
   m_EditorClassIdentifier: 
+  _damage: 10
+  _distance: 20

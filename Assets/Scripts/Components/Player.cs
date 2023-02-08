@@ -70,6 +70,13 @@ namespace ShooterBot
 
         }
 
+        void OnAnimationIK(Animator animator)
+        {
+            animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1);
+            animator.SetIKRotationWeight(AvatarIKGoal.LeftHand, 1);
+            //animator.SetIKPosition(AvatarIKGoal.LeftHand, )
+        }
+
         public override void Move(Vector3 direction)
         {
             direction.y -= Mathf.Sqrt(2 * this.Gravity);

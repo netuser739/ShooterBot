@@ -2,7 +2,6 @@ using ShooterBot;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Prototype;    //не забыть убрать
 
 namespace ShooterBot
 {
@@ -20,14 +19,6 @@ namespace ShooterBot
             }
 
             return null;
-        }
-
-        //все убрать
-        public EnemyData Copy(Enemy enemy)
-        {
-            EnemyData data = new EnemyData(enemy);
-            EnemyData newEnemyData = data.DeepCopy();
-            return newEnemyData;
         }
     }
 }

@@ -12,7 +12,6 @@ namespace ShooterBot
         private Vector3 _offset;
         private int _damage;
         private float _distance;
-       
 
         public Weapon(WeaponCharacteristics characteristics)
         {
